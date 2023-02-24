@@ -1,0 +1,64 @@
+<header>
+
+<nav class="navbar navbar-expand-lg  navSamy">
+
+
+    <div class="container-fluid">
+    <a class="navbar-brand" href="/">Quizz Incroyable</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+         <% if(locals.username == "Anonyme") { %>
+            <li class="nav-item">
+                 <a href="/signin"> Creer un compte</a>
+            </li>
+           <li class="nav-item">
+            <a class="nav-link active" href="/login"> Se connecter</a>
+           </li>
+            
+        <% } else {%>
+            <li class="nav-item">
+                <a class="nav-link active" href="/logout"> Se deconnecter</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="/create-question"> Creer une question</a>
+            </li>
+            
+        <% } %>
+        <li class="nav-item">
+          <a class="nav-link" href="/result">Voir les résultats</a>
+        </li>
+        <li class="nav-item">
+          <p class="nav-link"> Bonjour <%= locals.username %> </p>
+        </li>
+        <% if(locals.username == "Admin") { %>
+             <li class="nav-item">
+                <a class="nav-link active" href="/moderate-question"> Modérer les questions proposées </A>
+                </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+</header>
+
+<% if(locals.flash) { %>
+    <div class="messages">
+
+        <% for(m of locals.flash) { %>
+
+            <p class="alert <%= m[0] %>"> <%= m[1] %> </p>
+
+        <% } %>
+
+    </div>
+    
+<% } %>

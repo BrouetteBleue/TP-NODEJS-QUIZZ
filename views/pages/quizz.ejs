@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include('partials/head') %>
+    
+</head>
+<body>
+    <%- include('partials/header') %>
+    <h1>Quizz incroyable</h1>
+
+   
+    <div class="container">
+            <div>
+                <h2>Thème : <%= theme %></h2>
+                <h3>Question <%= questionIndex + 1%> : <%= question %></h3>
+                <div>
+                    <form class="form-quizz" action="../quizzCheck" method="POST">
+                        <input type="hidden" name="questionIndex" value="<%= questionIndex %>">
+                        <input type="hidden" name="theme" value="<%= theme %>">
+                        <input type="hidden" name="questionID" value="<%= questionId %>">
+
+
+                         <% answers.forEach( (t) => { %>
+                            <button class="btn-Answer-Quizz" type="submit" value="<%= t.correct %>" name="answer"><%= t.content %></button>
+                        <% }) %>
+
+                        <button  type="submit" name="stop" value="1">Stop</button>
+                        
+                    </form>
+                    
+                </div>
+            </div>
+    </div>
+</body>
+</html>

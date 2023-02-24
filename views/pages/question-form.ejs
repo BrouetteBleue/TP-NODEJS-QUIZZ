@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include('partials/head') %>
+    
+</head>
+<body>
+    <%- include('partials/header') %>
+    <h1>Creer une question</h1>
+    <form action="/create-question" method="POST">
+        <div>
+            <label for="title">Question</label>
+            <input type="text" name="question" id="question">
+        </div>
+        <div>
+            <div>Theme :
+                <ul>
+                    <li>
+                        <input type="checkbox" name="theme" value="Histoire" id="Histoire">
+                        <label for="Histoire">Histoire</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="theme" value="Géographie" id="Géographie">
+                        <label for="Géographie">Géographie</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="theme" value="Wtf" id="WTF">
+                        <label for="WTF">WTF</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="theme" value="Jeux-vidéos" id="Jeux-vidéos">
+                        <label for="Jeux-vidéos">Jeux-vidéos</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="theme" value="Bande Déssinée" id="Bande Déssinée">
+                        <label for="Bande Déssinée">Bande Déssinée</label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div id="AnswerD">
+            <label for="answer1">Réponse 1 :</label>
+            <input type="text" id="answer1" name="answer[1][answer]">
+            <input type="checkbox" name="answer[1][correct]"  id="Bonne réponse">
+            <label for="Bonne réponse">Bonne réponse</label>
+        </div>
+        
+
+        <div id="AnswerD">
+            <label for="answer2">Réponse 2 :</label>
+            <input type="text" id="answer2" name="answer[2][answer]">
+            <input type="checkbox" name="answer[2][correct]"  id="Bonne réponse">
+            <label for="Bonne réponse">Bonne réponse</label>
+        </div>
+        
+        <div id="answers-container">
+
+        </div>
+
+        <div id="max-answer" style="color:red; visibility: hidden;"> 5 réponses maximum par question !</div>
+
+         <button type="button" onclick="addAnswer()">Ajouter une réponse</button>
+
+        <div>
+            <input type="submit" value="Envoyer">
+        </div>
+    </form>
+</body>
+</html>

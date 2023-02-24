@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include('partials/head') %>
+    
+</head>
+<body>
+    <%- include('partials/header') %>
+
+   
+    <div class="container">
+            <div>
+               <h2>Résultats des derniers quizz faits en ligne :</h2>
+
+               <table class="table">
+                    <tr>
+                        <th>Questions</th>
+                        <th>Theme</th>
+                        <th>Réponses</th>
+                        <th>date</th>
+                        <th>valide</th>
+                    </tr>
+                    <% questions.forEach((question) => { %>
+                        <tr>
+                        <td><%= question.content %></td>
+                        <td><%= question.theme %></td>
+                        <td>
+                            <table>
+                            <% question.answers.forEach((answer) => { %>
+                                <tr>
+                                <td><%= answer.content %></td>
+                                </tr>
+                            <% }) %>
+                            </table>
+                        </td>
+                        <td><%= question.created %></td>
+                        <td>
+                            <form action="" method="POST">
+                                <input type="hidden" name="id" value="<%= question._id %>">
+                                <button type="submit" name="action" value="1">Valider la question</button>
+                                <button type="submit" name="action" value="0">Refuser la question</button>
+
+                            </form>
+                        </td>
+                        </tr>
+                    <% }) %>
+                </table>
+            </div>
+    </div>
+</body>
+</html>

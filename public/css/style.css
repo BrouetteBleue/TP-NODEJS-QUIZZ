@@ -1,0 +1,23 @@
+.navSamy{
+    background-color: orange !important;
+}
+
+.form-quizz{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+    
+.btn-Answer-Quizz{
+    background-color: orange !important;
+    color: white !important;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: 100%;
+    text-align: left;
+    font-size: 1.2em;
+    font-weight: bold;
+}
